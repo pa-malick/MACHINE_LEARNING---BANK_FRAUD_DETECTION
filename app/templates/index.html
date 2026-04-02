@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bank Fraud Detection — UADB</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-icon">🏦</span>
+        <div>
+          <h1>Bank Fraud Detection</h1>
+          <p>Machine Learning · Master DSGL · UADB · Papa Malick NDIAYE</p>
+        </div>
+      </div>
+      <span class="badge-ok">API Active ✓</span>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Meilleur modèle ── -->
+    <section class="card" id="section-model">
+      <h2 class="card-title">🏆 Meilleur modèle</h2>
+      <p class="model-name" id="best-model-name">Chargement…</p>
+      <div class="metrics-row" id="metrics-row">
+        <div class="metric-box"><span class="mval" id="m-acc">—</span><span class="mlbl">Accuracy</span></div>
+        <div class="metric-box"><span class="mval" id="m-prec">—</span><span class="mlbl">Précision</span></div>
+        <div class="metric-box"><span class="mval" id="m-rec">—</span><span class="mlbl">Rappel</span></div>
+        <div class="metric-box"><span class="mval" id="m-f1">—</span><span class="mlbl">F1-Score</span></div>
+      </div>
+    </section>
+
+    <!-- ── Formulaire de prédiction ── -->
+    <section class="card">
+      <h2 class="card-title">🔍 Analyser une transaction</h2>
+      <p class="card-sub">Renseignez les 13 caractéristiques du client pour obtenir une prédiction en temps réel.</p>
+      <form id="pred-form">
+        <div class="form-grid" id="form-grid">
+          <!-- Champs générés dynamiquement par script.js -->
+        </div>
+        <button type="submit" class="btn-primary" id="btn-submit">
+          Analyser ↗
+        </button>
+      </form>
+      <div id="result-box" class="result hidden"></div>
+    </section>
+
+    <!-- ── Tableau comparatif ── -->
+    <section class="card">
+      <h2 class="card-title">📊 Comparaison de tous les modèles</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Modèle</th>
+              <th>Accuracy</th>
+              <th>Précision</th>
+              <th>Rappel</th>
+              <th>F1-Score</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <tr><td colspan="5" style="text-align:center;color:#64748b">Chargement…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Papa Malick NDIAYE · Master DSGL · Université Alioune Diop de Bambey © 2025</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

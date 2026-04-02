@@ -1,0 +1,227 @@
+/* ================================================================
+   style.css  –  Interface Bank Fraud Detection
+   Auteur : Papa Malick NDIAYE
+   ================================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg      : #0f172a;
+  --surface : #1e293b;
+  --card    : #1e293b;
+  --border  : rgba(255,255,255,0.07);
+  --white   : #f1f5f9;
+  --muted   : #94a3b8;
+  --blue    : #3b82f6;
+  --green   : #10b981;
+  --red     : #ef4444;
+  --orange  : #f59e0b;
+  --radius  : 10px;
+}
+
+html { font-size: 13px; }
+
+body {
+  background : var(--bg);
+  color      : var(--white);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+/* ── Header ── */
+header {
+  background   : var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding      : 0.85rem 2rem;
+}
+
+.header-inner {
+  max-width      : 1050px;
+  margin         : 0 auto;
+  display        : flex;
+  align-items    : center;
+  justify-content: space-between;
+}
+
+.brand { display: flex; align-items: center; gap: 0.85rem; }
+.brand-icon { font-size: 1.8rem; }
+header h1   { font-size: 1rem; font-weight: 700; }
+header p    { font-size: 0.72rem; color: var(--muted); }
+
+.badge-ok {
+  padding      : 0.25rem 0.7rem;
+  background   : rgba(16,185,129,0.12);
+  border       : 1px solid rgba(16,185,129,0.28);
+  border-radius: 50px;
+  font-size    : 0.7rem;
+  color        : var(--green);
+}
+
+/* ── Main ── */
+main {
+  max-width     : 1050px;
+  margin        : 1.5rem auto;
+  padding       : 0 1.5rem;
+  display       : flex;
+  flex-direction: column;
+  gap           : 1.2rem;
+}
+
+/* ── Cards ── */
+.card {
+  background   : var(--card);
+  border       : 1px solid var(--border);
+  border-radius: var(--radius);
+  padding      : 1.4rem 1.6rem;
+}
+
+.card-title {
+  font-size    : 0.95rem;
+  font-weight  : 700;
+  margin-bottom: 0.9rem;
+}
+
+.card-sub {
+  font-size    : 0.8rem;
+  color        : var(--muted);
+  margin-bottom: 1rem;
+}
+
+/* ── Métriques ── */
+.model-name {
+  font-size    : 1.1rem;
+  font-weight  : 700;
+  color        : var(--blue);
+  margin-bottom: 1rem;
+}
+
+.metrics-row {
+  display              : grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap                  : 0.8rem;
+}
+
+.metric-box {
+  background   : rgba(59,130,246,0.07);
+  border       : 1px solid rgba(59,130,246,0.18);
+  border-radius: 8px;
+  padding      : 0.9rem;
+  text-align   : center;
+}
+
+.mval {
+  display    : block;
+  font-size  : 1.4rem;
+  font-weight: 700;
+  color      : var(--blue);
+}
+
+.mlbl {
+  display   : block;
+  font-size : 0.68rem;
+  color     : var(--muted);
+  margin-top: 0.2rem;
+}
+
+/* ── Formulaire ── */
+.form-grid {
+  display              : grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap                  : 0.7rem;
+  margin-bottom        : 1rem;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 0.28rem; }
+
+.form-group label {
+  font-size     : 0.65rem;
+  color         : var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-group input {
+  background   : rgba(255,255,255,0.04);
+  border       : 1px solid var(--border);
+  border-radius: 6px;
+  padding      : 0.45rem 0.65rem;
+  color        : var(--white);
+  font-size    : 0.82rem;
+  outline      : none;
+  transition   : border-color 0.2s;
+}
+
+.form-group input:focus { border-color: var(--blue); }
+
+.btn-primary {
+  padding      : 0.6rem 1.8rem;
+  background   : var(--blue);
+  color        : #fff;
+  border       : none;
+  border-radius: 8px;
+  font-size    : 0.85rem;
+  font-weight  : 600;
+  cursor       : pointer;
+  transition   : background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover    { background: #2563eb; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Résultat ── */
+.result {
+  margin-top   : 1rem;
+  padding      : 0.9rem 1.2rem;
+  border-radius: 8px;
+  font-size    : 0.92rem;
+  font-weight  : 600;
+  text-align   : center;
+}
+
+.result.fraude  { background: rgba(239,68,68,0.12);  border: 1px solid rgba(239,68,68,0.28);  color: var(--red);   }
+.result.normal  { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.28); color: var(--green); }
+.result.hidden  { display: none; }
+
+/* ── Tableau ── */
+.table-wrap { overflow-x: auto; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+
+thead th {
+  padding       : 0.55rem 1rem;
+  text-align    : left;
+  background    : rgba(255,255,255,0.03);
+  color         : var(--muted);
+  font-size     : 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom : 1px solid var(--border);
+}
+
+tbody td {
+  padding      : 0.55rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+tbody tr:hover        { background: rgba(255,255,255,0.02); }
+tbody tr.best-row td  { color: var(--green); font-weight: 700; }
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding   : 1.2rem;
+  font-size : 0.7rem;
+  color     : var(--muted);
+  border-top: 1px solid var(--border);
+  margin-top: 1.5rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .metrics-row { grid-template-columns: repeat(2, 1fr); }
+  .form-grid   { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 420px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
