@@ -18,7 +18,7 @@ from flask import Flask, request, jsonify, render_template
 
 # Accès aux modules src depuis le dossier app/
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-from src.utils import charger_modele, charger_metriques
+from utils import charger_modele, charger_metriques
 
 app = Flask(__name__)
 

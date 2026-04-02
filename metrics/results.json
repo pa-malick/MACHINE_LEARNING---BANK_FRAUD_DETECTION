@@ -1,0 +1,35 @@
+{
+    "meilleur_modele": "SVM",
+    "resultats": {
+        "Régression Logistique": {
+            "accuracy": 0.5275,
+            "precision": 0.1596,
+            "recall": 0.7727,
+            "f1_score": 0.2646
+        },
+        "Random Forest": {
+            "accuracy": 0.7625,
+            "precision": 0.1928,
+            "recall": 0.3636,
+            "f1_score": 0.252
+        },
+        "Gradient Boosting": {
+            "accuracy": 0.7975,
+            "precision": 0.2239,
+            "recall": 0.3409,
+            "f1_score": 0.2703
+        },
+        "SVM": {
+            "accuracy": 0.6325,
+            "precision": 0.1953,
+            "recall": 0.75,
+            "f1_score": 0.3099
+        },
+        "KNN": {
+            "accuracy": 0.6675,
+            "precision": 0.155,
+            "recall": 0.4545,
+            "f1_score": 0.2312
+        }
+    }
+}
