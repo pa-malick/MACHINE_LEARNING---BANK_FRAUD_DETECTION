@@ -3,58 +3,194 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bank Fraud Detection — UADB</title>
+  <title>Bank Fraud Detection — Papa Malick NDIAYE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
 </head>
 <body>
 
-  <header>
-    <div class="header-inner">
-      <div class="brand">
-        <span class="brand-icon">🏦</span>
-        <div>
-          <h1>Bank Fraud Detection</h1>
-          <p>Machine Learning · Master DSGL · UADB · Papa Malick NDIAYE</p>
-        </div>
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">BFD<span class="accent">.</span></div>
+      <ul class="nav-links">
+        <li><a href="#section-overview">Vue d'ensemble</a></li>
+        <li><a href="#section-predict">Prédiction</a></li>
+        <li><a href="#section-models">Modèles</a></li>
+        <li><a href="#section-about">À propos</a></li>
+      </ul>
+      <div class="nav-status">
+        <span class="status-dot"></span>
+        <span>API Active</span>
       </div>
-      <span class="badge-ok">API Active ✓</span>
     </div>
-  </header>
+  </nav>
 
-  <main>
-
-    <!-- ── Meilleur modèle ── -->
-    <section class="card" id="section-model">
-      <h2 class="card-title">🏆 Meilleur modèle</h2>
-      <p class="model-name" id="best-model-name">Chargement…</p>
-      <div class="metrics-row" id="metrics-row">
-        <div class="metric-box"><span class="mval" id="m-acc">—</span><span class="mlbl">Accuracy</span></div>
-        <div class="metric-box"><span class="mval" id="m-prec">—</span><span class="mlbl">Précision</span></div>
-        <div class="metric-box"><span class="mval" id="m-rec">—</span><span class="mlbl">Rappel</span></div>
-        <div class="metric-box"><span class="mval" id="m-f1">—</span><span class="mlbl">F1-Score</span></div>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <div class="hero-tag fade-up">
+        <i class="fas fa-shield-alt"></i>
+        Projet Machine Learning · Master DSGL · UADB
       </div>
-    </section>
-
-    <!-- ── Formulaire de prédiction ── -->
-    <section class="card">
-      <h2 class="card-title">🔍 Analyser une transaction</h2>
-      <p class="card-sub">Renseignez les 13 caractéristiques du client pour obtenir une prédiction en temps réel.</p>
-      <form id="pred-form">
-        <div class="form-grid" id="form-grid">
-          <!-- Champs générés dynamiquement par script.js -->
+      <h1 class="hero-title fade-up">
+        Détection de<br>
+        <span class="hero-accent">Fraude Bancaire</span>
+      </h1>
+      <p class="hero-sub fade-up">
+        Un système d'intelligence artificielle qui identifie automatiquement
+        les transactions frauduleuses en analysant le comportement des clients en temps réel.
+      </p>
+      <div class="hero-cta fade-up">
+        <a href="#section-predict" class="btn-primary">
+          <i class="fas fa-search"></i> Tester une transaction
+        </a>
+        <a href="#section-models" class="btn-ghost">
+          <i class="fas fa-chart-bar"></i> Voir les résultats
+        </a>
+      </div>
+      <div class="hero-stats fade-up">
+        <div class="hstat">
+          <span class="hstat-val">2 266</span>
+          <span class="hstat-lbl">Transactions</span>
         </div>
-        <button type="submit" class="btn-primary" id="btn-submit">
-          Analyser ↗
-        </button>
-      </form>
-      <div id="result-box" class="result hidden"></div>
-    </section>
+        <div class="hstat-sep"></div>
+        <div class="hstat">
+          <span class="hstat-val">5</span>
+          <span class="hstat-lbl">Modèles ML</span>
+        </div>
+        <div class="hstat-sep"></div>
+        <div class="hstat">
+          <span class="hstat-val" id="hero-acc">—</span>
+          <span class="hstat-lbl">Meilleure accuracy</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- ── Tableau comparatif ── -->
-    <section class="card">
-      <h2 class="card-title">📊 Comparaison de tous les modèles</h2>
+  <!-- OVERVIEW -->
+  <section id="section-overview">
+    <div class="container">
+      <p class="section-label">01 — Vue d'ensemble</p>
+      <h2 class="section-title">Performance du<br><span class="accent">meilleur modèle</span></h2>
+
+      <div class="overview-cards">
+        <div class="ov-card gold">
+          <div class="ov-icon"><i class="fas fa-trophy"></i></div>
+          <span class="ov-lbl">Meilleur modèle</span>
+          <span class="ov-val" id="best-model-name">—</span>
+        </div>
+        <div class="ov-card blue">
+          <div class="ov-icon"><i class="fas fa-bullseye"></i></div>
+          <span class="ov-lbl">Accuracy</span>
+          <span class="ov-val" id="m-acc">—</span>
+        </div>
+        <div class="ov-card green">
+          <div class="ov-icon"><i class="fas fa-crosshairs"></i></div>
+          <span class="ov-lbl">Précision</span>
+          <span class="ov-val" id="m-prec">—</span>
+        </div>
+        <div class="ov-card orange">
+          <div class="ov-icon"><i class="fas fa-search"></i></div>
+          <span class="ov-lbl">Rappel</span>
+          <span class="ov-val" id="m-rec">—</span>
+        </div>
+        <div class="ov-card red">
+          <div class="ov-icon"><i class="fas fa-balance-scale"></i></div>
+          <span class="ov-lbl">F1-Score</span>
+          <span class="ov-val" id="m-f1">—</span>
+        </div>
+      </div>
+
+      <div class="context-row">
+        <div class="ctx-card">
+          <div class="ctx-icon"><i class="fas fa-exclamation-triangle"></i></div>
+          <h3>Le problème</h3>
+          <p>La fraude bancaire représente des milliards de pertes annuelles. Les systèmes manuels sont trop lents et peu scalables.</p>
+        </div>
+        <div class="ctx-card">
+          <div class="ctx-icon"><i class="fas fa-brain"></i></div>
+          <h3>La solution IA</h3>
+          <p>Des modèles ML entraînés sur l'historique transactionnel pour détecter automatiquement les patterns frauduleux.</p>
+        </div>
+        <div class="ctx-card">
+          <div class="ctx-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>L'impact</h3>
+          <p>Détection en temps réel, réduction des faux négatifs et scalabilité totale sans expertise humaine à chaque transaction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRÉDICTION -->
+  <section id="section-predict">
+    <div class="container">
+      <p class="section-label">02 — Prédiction</p>
+      <h2 class="section-title">Analyser une<br><span class="accent">transaction</span></h2>
+
+      <div class="predict-layout">
+
+        <!-- Formulaire -->
+        <div class="predict-form-wrap">
+          <div class="form-header">
+            <i class="fas fa-user-circle"></i>
+            <span>Informations client</span>
+          </div>
+          <form id="predict-form">
+            <div class="form-grid" id="form-grid"></div>
+            <button type="submit" class="btn-predict" id="btn-predict">
+              <i class="fas fa-search"></i> Analyser la transaction
+            </button>
+          </form>
+        </div>
+
+        <!-- Résultat -->
+        <div class="predict-result-wrap">
+
+          <!-- Idle state -->
+          <div class="result-idle" id="result-idle">
+            <div class="idle-icon"><i class="fas fa-shield-alt"></i></div>
+            <h3>En attente d'analyse</h3>
+            <p>Renseignez les informations du client et lancez l'analyse pour obtenir une prédiction instantanée.</p>
+            <div class="idle-tips">
+              <div class="idle-tip"><i class="fas fa-check-circle"></i> 13 variables analysées</div>
+              <div class="idle-tip"><i class="fas fa-check-circle"></i> Résultat en temps réel</div>
+              <div class="idle-tip"><i class="fas fa-check-circle"></i> Score de confiance inclus</div>
+            </div>
+          </div>
+
+          <!-- Result state -->
+          <div class="result-output hidden" id="result-output">
+            <div class="result-badge" id="result-badge"></div>
+            <div class="result-label" id="result-label"></div>
+            <div class="proba-section">
+              <span class="proba-title">Probabilité de fraude</span>
+              <div class="proba-bar-track">
+                <div class="proba-bar-fill" id="proba-fill"></div>
+              </div>
+              <span class="proba-pct" id="proba-pct"></span>
+            </div>
+            <button class="btn-reset" id="btn-reset">
+              <i class="fas fa-redo"></i> Nouvelle analyse
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODÈLES -->
+  <section id="section-models">
+    <div class="container">
+      <p class="section-label">03 — Comparaison</p>
+      <h2 class="section-title">Les <span class="accent">5 modèles</span><br>comparés</h2>
+
       <div class="table-wrap">
-        <table>
+        <table class="models-table">
           <thead>
             <tr>
               <th>Modèle</th>
@@ -62,19 +198,100 @@
               <th>Précision</th>
               <th>Rappel</th>
               <th>F1-Score</th>
+              <th>Statut</th>
             </tr>
           </thead>
-          <tbody id="table-body">
-            <tr><td colspan="5" style="text-align:center;color:#64748b">Chargement…</td></tr>
+          <tbody id="models-tbody">
+            <tr><td colspan="6" class="tbl-loading"><i class="fas fa-circle-notch fa-spin"></i> Chargement…</td></tr>
           </tbody>
         </table>
       </div>
-    </section>
 
-  </main>
+      <div class="metrics-legend">
+        <div class="ml-item"><span class="ml-dot blue"></span><strong>Accuracy</strong> — Taux global de bonnes prédictions</div>
+        <div class="ml-item"><span class="ml-dot green"></span><strong>Précision</strong> — Qualité des alertes fraude</div>
+        <div class="ml-item"><span class="ml-dot orange"></span><strong>Rappel</strong> — Fraudes effectivement détectées</div>
+        <div class="ml-item"><span class="ml-dot red"></span><strong>F1-Score</strong> — Critère de sélection final</div>
+      </div>
+    </div>
+  </section>
 
+  <!-- À PROPOS -->
+  <section id="section-about">
+    <div class="container">
+      <p class="section-label">04 — À propos</p>
+      <h2 class="section-title">Le projet &<br><span class="accent">l'auteur</span></h2>
+
+      <div class="about-grid">
+        <div class="about-author">
+          <div class="author-avatar"><i class="fas fa-user-graduate"></i></div>
+          <div class="author-info">
+            <h3>Papa Malick NDIAYE</h3>
+            <p class="author-role">Master Data Science & Génie Logiciel</p>
+            <p class="author-school"><i class="fas fa-university"></i> Université Alioune Diop de Bambey</p>
+            <p class="author-bio">Passionné par la Data Science et l'IA, je développe des solutions ML concrètes appliquées à des problèmes réels à fort impact.</p>
+            <div class="author-links">
+              <a href="https://github.com/pa-malick" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://linkedin.com/in/papa-malick-ndiaye-b58b22309" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+              <a href="mailto:njaymika@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-stack">
+          <h3>Stack technique</h3>
+          <div class="stack-grid">
+            <div class="stack-tag"><i class="fab fa-python"></i> Python</div>
+            <div class="stack-tag"><i class="fas fa-brain"></i> Scikit-learn</div>
+            <div class="stack-tag"><i class="fas fa-server"></i> Flask</div>
+            <div class="stack-tag"><i class="fas fa-table"></i> Pandas</div>
+            <div class="stack-tag"><i class="fas fa-chart-area"></i> Matplotlib</div>
+            <div class="stack-tag"><i class="fab fa-github"></i> GitHub</div>
+          </div>
+
+          <h3 style="margin-top:1.8rem;font-size:0.85rem">Pipeline ML</h3>
+          <div class="pipeline">
+            <div class="pipe-step">
+              <span class="pipe-num">1</span>
+              <span class="pipe-lbl">Données</span>
+            </div>
+            <i class="fas fa-chevron-right pipe-arr"></i>
+            <div class="pipe-step">
+              <span class="pipe-num">2</span>
+              <span class="pipe-lbl">Nettoyage</span>
+            </div>
+            <i class="fas fa-chevron-right pipe-arr"></i>
+            <div class="pipe-step">
+              <span class="pipe-num">3</span>
+              <span class="pipe-lbl">SMOTE</span>
+            </div>
+            <i class="fas fa-chevron-right pipe-arr"></i>
+            <div class="pipe-step">
+              <span class="pipe-num">4</span>
+              <span class="pipe-lbl">Training</span>
+            </div>
+            <i class="fas fa-chevron-right pipe-arr"></i>
+            <div class="pipe-step active">
+              <span class="pipe-num">5</span>
+              <span class="pipe-lbl">API</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>Papa Malick NDIAYE · Master DSGL · Université Alioune Diop de Bambey © 2025</p>
+    <div class="footer-inner">
+      <span class="footer-brand">BFD<span class="accent">.</span></span>
+      <p class="footer-copy">Papa Malick NDIAYE · Master DSGL · UADB © 2026</p>
+      <div class="footer-socials">
+        <a href="https://github.com/pa-malick" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/papa-malick-ndiaye-b58b22309" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:njaymika@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
   </footer>
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>

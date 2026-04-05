@@ -117,8 +117,9 @@ def diviser_et_normaliser(X, y, taille_test: float = 0.30):
     print(f"[✔] Split  →  train : {len(X_train)}  |  test : {len(X_test)}")
 
     scaler  = StandardScaler()
-    X_train = scaler.fit_transform(X_train)
-    X_test  = scaler.transform(X_test)
+    X_train = scaler.fit_transform(X_train)     #fit → regarde X_train et mémorise sa moyenne et son écart-type
+                                                #transform → applique la normalisation sur X_train avec ces valeurs mémorisées
+    X_test  = scaler.transform(X_test)          #applique la normalisation sur X_test avec les valeurs mémorisées du train
     print("[✔] Normalisation StandardScaler appliquée")
 
     return X_train, X_test, y_train, y_test, scaler

@@ -35,12 +35,10 @@ def get_modeles() -> dict:
         ),
 
         "Random Forest": RandomForestClassifier(
-            n_estimators=200,
-            max_depth=12,
-            min_samples_leaf=2,
+            n_estimators=300,    # nombre d'arbres augmenté pour plus de stabilité
+            max_depth=15,        #  arbres plus profonds pour capturer les interactions
+            min_samples_leaf=1,  # chaque feuille peut avoir 1 seul exemple
             random_state=42,
-            class_weight="balanced",
-            n_jobs=-1                  # parallélisation sur tous les cœurs
         ),
 
         "Gradient Boosting": GradientBoostingClassifier(

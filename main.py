@@ -83,11 +83,11 @@ def main():
     sauvegarder_metriques(resultats, meilleur_nom)
 
     print("\n" + "=" * 60)
-    print(f"  ✅  Pipeline terminée avec succès !")
-    print(f"  🏆  Meilleur modèle  : {meilleur_nom}")
-    print(f"  📊  Métriques        : metrics/results.json")
-    print(f"  📈  Graphiques       : metrics/")
-    print(f"  💾  Modèle           : models/best_model.pkl")
+    print(f"Pipeline terminée avec succès !")
+    print(f"Meilleur modèle  : {meilleur_nom}")
+    print(f"Métriques        : metrics/results.json")
+    print(f"Graphiques       : metrics/")
+    print(f"Modèle           : models/best_model.pkl")
     print("=" * 60)
     print("\n  → Lancez maintenant l'API :  python app/app.py\n")
 

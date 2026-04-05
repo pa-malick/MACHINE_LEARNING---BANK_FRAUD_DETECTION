@@ -184,3 +184,39 @@ def sauvegarder_metriques(resultats: dict, meilleur: str) -> None:
     with open("metrics/results.json", "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=4, ensure_ascii=False)
     print("[✔] Métriques exportées : metrics/results.json")
+
+
+# ── 5. Autre visualisation ───────────────────────────────────────
+
+def tracer_importance_features(modele, feature_names, nom="Random Forest"):
+    """
+    Affiche les variables les plus importantes pour la prédiction.
+    Uniquement pour les modèles qui ont feature_importances_
+    (Random Forest, Gradient Boosting, Decision Tree)
+    """
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import os
+
+    # récupère l'importance de chaque variable
+    importances = modele.feature_importances_
+    
+    # trie du plus important au moins important
+    indices = np.argsort(importances)[::-1]
+    noms_tries = [feature_names[i] for i in indices]
+    vals_tries = importances[indices]
+
+    fig, ax = plt.subplots(figsize=(10, 5))
+    ax.bar(noms_tries, vals_tries, color="#3b82f6", edgecolor="white")
+    ax.set_title(f"Importance des variables – {nom}",
+                 fontsize=12, fontweight="bold")
+    ax.set_xlabel("Variables")
+    ax.set_ylabel("Importance")
+    ax.tick_params(axis="x", rotation=45)
+    ax.grid(axis="y", linestyle="--", alpha=0.4)
+
+    os.makedirs("metrics", exist_ok=True)
+    plt.tight_layout()
+    plt.savefig(f"metrics/feature_importance_{nom}.png", dpi=150)
+    plt.close()
+    print(f"[✔] Feature importance sauvegardée : metrics/feature_importance_{nom}.png")

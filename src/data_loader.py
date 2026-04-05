@@ -9,7 +9,7 @@ import os
 import pandas as pd
 
 
-def charger_donnees(chemin: str) -> pd.DataFrame:
+def charger_donnees(chemin: str) -> pd.DataFrame: 
     """
     Charge le fichier CSV dans un DataFrame pandas.
 
@@ -23,8 +23,8 @@ def charger_donnees(chemin: str) -> pd.DataFrame:
     df : pd.DataFrame
         Le jeu de données brut.
     """
-    if not os.path.exists(chemin):
-        raise FileNotFoundError(
+    if not os.path.exists(chemin):     # Si le fichier csv n'existe pas
+        raise FileNotFoundError(       # On affiche un message d'erreur clair
             f"Fichier introuvable : '{chemin}'\n"
             "→ Vérifiez que 'creditcarddata.csv' est bien dans le dossier data/"
         )

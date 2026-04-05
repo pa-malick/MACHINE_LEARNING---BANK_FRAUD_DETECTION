@@ -192,11 +192,11 @@ Après exécution de la pipeline, les métriques complètes sont disponibles dan
 **Papa Malick NDIAYE**
 Master Data Science & Génie Logiciel — Université Alioune Diop de Bambey (UADB)
 📧 njaymika@gmail.com
-🔗 [LinkedIn](https://linkedin.com/in/votre-profil)
-🐙 [GitHub](https://github.com/votre-username)
+🔗 [LinkedIn](www.linkedin.com/in/papa-malick-ndiaye-b58b22309)
+🐙 [GitHub](https://github.com/pa-malick)
 
 ---
 
 <div align="center">
-<sub>Projet réalisé dans le cadre du Master DSGL – UADB © 2025</sub>
+<sub>Projet réalisé dans le cadre du Master DSGL – UADB © 2026</sub>
 </div>
