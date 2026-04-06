@@ -8,10 +8,10 @@
             "f1_score": 0.2646
         },
         "Random Forest": {
-            "accuracy": 0.7625,
-            "precision": 0.1928,
+            "accuracy": 0.7875,
+            "precision": 0.2192,
             "recall": 0.3636,
-            "f1_score": 0.252
+            "f1_score": 0.2735
         },
         "Gradient Boosting": {
             "accuracy": 0.7975,

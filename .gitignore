@@ -1,0 +1,29 @@
+# Cache Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Environnements virtuels
+venv/
+env/
+.venv/
+
+# Modèles sauvegardés (trop lourds pour GitHub)
+models/*.pkl
+models/*.keras
+models/*.h5
+
+# Métriques générées
+metrics/*.png
+metrics/*.json
+
+# Variables d'environnement
+.env
+
+# Éditeurs
+.vscode/
+.idea/
+
+# Système
+.DS_Store
+Thumbs.db

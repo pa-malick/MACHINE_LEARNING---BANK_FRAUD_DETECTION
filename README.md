@@ -7,6 +7,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-3.0-black?style=flat-square&logo=flask)](https://flask.palletsprojects.com)
 [![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.3-orange?style=flat-square&logo=scikit-learn)](https://scikit-learn.org)
+[![Docker](https://img.shields.io/badge/Docker-ready-2496ED?style=flat-square&logo=docker)](https://docker.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production--Ready-brightgreen?style=flat-square)]()
 
@@ -85,6 +86,7 @@ BANK_FRAUD_DETECTION/
 
 ## 🚀 Installation & Utilisation
 
+```
 ### 1. Cloner le projet
 
 ```bash
@@ -122,6 +124,15 @@ make serve
 # ou
 python app/app.py
 ```
+
+## 🐳 Lancer avec Docker
+```bash
+# 1. Placer le dataset
+cp /chemin/vers/creditcarddata.csv data/
+
+# 2. Construire et lancer
+docker-compose up --build
+
 
 Accédez à **http://localhost:5000** dans votre navigateur.
 

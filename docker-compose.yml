@@ -1,0 +1,65 @@
+# ================================================================
+# docker-compose.yml – BANK_FRAUD_DETECTION
+# Auteur : Papa Malick NDIAYE | Master DSGL – UADB
+#
+# docker-compose permet de lancer le projet en UNE SEULE commande
+# au lieu de taper plusieurs commandes Docker manuellement.
+#
+# Usage :
+#   docker-compose up --build    ← première fois
+#   docker-compose up            ← fois suivantes
+#   docker-compose down          ← arrêter
+# ================================================================
+
+version: "3.9"
+
+services:
+
+  # ── Service principal : l'API Flask ────────────────────────────
+  fraud-api:
+
+    # Nom de l'image qui sera créée
+    image: bank-fraud-detection:latest
+
+    # Construit l'image depuis le Dockerfile du dossier courant
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # Nom du conteneur (plus lisible que l'ID auto-généré)
+    container_name: fraud_detection_api
+
+    # Mapping de ports : port_machine:port_conteneur
+    # On accède au conteneur via localhost:5000
+    ports:
+      - "5000:5000"
+
+    # Variables d'environnement passées au conteneur
+    environment:
+      - PORT=5000
+      - FLASK_ENV=production
+
+    # Volumes : synchronise les dossiers locaux avec le conteneur
+    # Utile en développement pour voir les changements sans rebuild
+    volumes:
+      - ./data:/app/data          # dataset CSV
+      - ./models:/app/models      # modèles sauvegardés
+      - ./metrics:/app/metrics    # graphiques et métriques JSON
+
+    # Politique de redémarrage automatique
+    # "unless-stopped" = redémarre si crash, sauf si arrêt manuel
+    restart: unless-stopped
+
+    # Healthcheck : Docker vérifie que l'API répond toutes les 30s
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+    # Limite les ressources (optionnel mais bonne pratique)
+    deploy:
+      resources:
+        limits:
+          memory: 1G

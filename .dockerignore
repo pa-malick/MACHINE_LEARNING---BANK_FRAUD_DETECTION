@@ -1,0 +1,56 @@
+# ================================================================
+# .dockerignore – BANK_FRAUD_DETECTION
+# Auteur : Papa Malick NDIAYE | Master DSGL – UADB
+#
+# Fonctionne comme .gitignore mais pour Docker.
+# Les fichiers listés ici ne seront PAS copiés dans l'image.
+# Résultat : image plus légère et build plus rapide.
+# ================================================================
+
+# Cache Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Environnements virtuels
+venv/
+env/
+.venv/
+
+# Fichiers générés (seront recréés lors du build)
+models/*.pkl
+models/*.keras
+metrics/*.png
+metrics/*.json
+
+# Notebooks (inutiles en production)
+notebooks/
+*.ipynb
+
+# Éditeurs et IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+architecture.txt
+reports/
+
+# Tests (inutiles en production)
+tests/
+
+# Variables d'environnement locales
+.env
+.env.local
+
+# Fichiers système
+.DS_Store
+Thumbs.db
