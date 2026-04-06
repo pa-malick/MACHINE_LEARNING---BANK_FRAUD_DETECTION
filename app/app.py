@@ -105,4 +105,4 @@ def health():
 
 if __name__ == "__main__":
     print("\n🚀  API Flask démarrée sur  http://localhost:5000")
-    app.run(debug=False, host="0.0.0.0", port=port)
+    app.run(debug=False, host="0.0.0.0", port=5000)
