@@ -79,6 +79,11 @@ BANK_FRAUD_DETECTION/
 ├── main.py                         ← pipeline complète
 ├── requirements.txt
 ├── Makefile
+├── .env.example
+├── Dockerfile
+├── docker-compose.yml
+├── .dockerignore
+├── .gitignore
 └── README.md
 ```
 
@@ -90,7 +95,7 @@ BANK_FRAUD_DETECTION/
 ### 1. Cloner le projet
 
 ```bash
-git clone https://github.com/votre-username/BANK_FRAUD_DETECTION.git
+git clone https://github.com/pa-malick/MACHINE_LEARNING---BANK_FRAUD_DETECTION.git
 cd BANK_FRAUD_DETECTION
 ```
 
