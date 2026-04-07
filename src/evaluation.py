@@ -192,7 +192,7 @@ def tracer_importance_features(modele, feature_names, nom="Random Forest"):
     """
     Affiche les variables les plus importantes pour la prédiction.
     Uniquement pour les modèles qui ont feature_importances_
-    (Random Forest, Gradient Boosting, Decision Tree)
+    (Random Forest, Gradient Boosting)
     """
     import matplotlib.pyplot as plt
     import numpy as np

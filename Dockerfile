@@ -37,7 +37,13 @@ COPY requirements.txt .
 
 # Mise à jour pip puis installation des dépendances
 RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+    pip install --no-cache-dir \
+        numpy==1.26.4 \
+        pandas==2.2.3 \
+        scikit-learn==1.5.2 \
+        joblib==1.4.2 \
+        -r requirements.txt
+RUN pip install --upgrade scikit-learn imbalanced-learn
 
 # ── Étape 6 : copie du code source ──────────────────────────────
 # Maintenant on copie tout le reste du projet

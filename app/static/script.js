@@ -5,19 +5,19 @@
 
 // ── Features du dataset ─────────────────────────────────────────
 const FEATURES = [
-  { key: "CustomerID",           label: "ID Client" },
-  { key: "Age",                  label: "Âge" },
-  { key: "Income",               label: "Revenu" },
-  { key: "AccountBalance",       label: "Solde compte" },
-  { key: "NumTransactions",      label: "Nb transactions" },
-  { key: "NumLatePayments",      label: "Nb retards paiement" },
-  { key: "CreditScore",          label: "Score crédit" },
-  { key: "LoanAmount",           label: "Montant prêt" },
-  { key: "LoanDuration",         label: "Durée prêt (mois)" },
-  { key: "NumCreditCards",       label: "Nb cartes crédit" },
-  { key: "HasLoan",              label: "A un prêt (0/1)" },
-  { key: "HasMortgage",          label: "Hypothèque (0/1)" },
-  { key: "TransactionFrequency", label: "Fréq. transactions" },
+  { key: "Gender",                   label: "Genre" },
+  { key: "Age",                      label: "Âge" },
+  { key: "HouseTypeID",              label: "Type de logement" },
+  { key: "ContactAvaliabilityID",    label: "Disponibilité contact" },
+  { key: "HomeCountry",              label: "Pays de résidence" },
+  { key: "AccountNo",                label: "Numéro de compte" },
+  { key: "CardExpiryDate",           label: "Expiration carte" },
+  { key: "TransactionAmount",        label: "Montant transaction" },
+  { key: "TransactionCountry",       label: "Pays transaction" },
+  { key: "LargePurchase",            label: "Gros achat (0/1)" },
+  { key: "ProductID",                label: "ID Produit" },
+  { key: "CIF",                      label: "CIF Client" },
+  { key: "TransactionCurrencyCode",  label: "Code devise" },
 ];
 
 // ── Navbar scroll ────────────────────────────────────────────────

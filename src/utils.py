@@ -9,6 +9,12 @@ import os
 import json
 import joblib
 
+FEATURE_NAMES = [
+    "Gender", "Age", "HouseTypeID", "ContactAvaliabilityID",
+    "HomeCountry", "AccountNo", "CardExpiryDate", "TransactionAmount",
+    "TransactionCountry", "LargePurchase", "ProductID",
+    "CIF", "TransactionCurrencyCode"
+]
 
 def sauvegarder_modele(modele, scaler,
                        chemin_modele : str = "models/best_model.pkl",
